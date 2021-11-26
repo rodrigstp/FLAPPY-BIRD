@@ -7,7 +7,7 @@ sprites.src = './sprites.png';
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
-
+///
 //***CHAO***
 const chao = {
     spritex: 0,
@@ -84,14 +84,38 @@ ctx.drawImage(
 
 
 
+
+//start menu 'get ready'
+
+const menuGet ={
+spritex: 134,
+spritey: 0,
+largura: 174,
+altura: 152,
+x: (canvas.width / 2 ) - 174 / 2 ,
+y: 50 ,
+
+desenha(){ //funçao que chama a imagem
+    ctx.drawImage(
+        sprites,
+        menuGet.spritex, menuGet.spritey, // sx sy
+        menuGet.largura, menuGet.altura, //tamanho do recorte da sprite
+        menuGet.x, menuGet.y, // x e y 
+        menuGet.largura, menuGet.altura)
+}
+}
+
+
+
  //function responsavel por tornar a imagem constante na tela por finalizar sempre chamando ela mesma
  function loop() {
-
+ menuGet.desenha();
     planodf.desenha();
     bird.desenha();
     chao.desenha();
     bird.y = bird.y +3; 
   
+    menuGet.desenha();
     
     requestAnimationFrame(loop);
 
