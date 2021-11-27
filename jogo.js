@@ -104,21 +104,55 @@ desenha(){ //funçao que chama a imagem
         menuGet.largura, menuGet.altura)
 }
 }
+let telaAtiva = {};
+function mudaTela(novaTela ){
+telaAtiva = novaTela;
+};
+ 
 
 
+const telas = {
+
+
+
+    Inicio = {
+        desenha(){
+
+        },
+        
+        atualiza(){
+            bird.desenha();
+        },    },
+
+
+        Jogo = {
+
+            desenha(){
+                planodf.desenha() ;
+
+                bird.desenha();
+    
+                chao.desenha();
+                bird.y = bird.y +3;
+            },
+            
+            atualiza(){
+                bird.desenha();
+            },
+
+        }
+
+    }
+    
 
  //function responsavel por tornar a imagem constante na tela por finalizar sempre chamando ela mesma
  function loop() {
- menuGet.desenha();
-    planodf.desenha();
-    bird.desenha();
-    chao.desenha();
-    bird.y = bird.y +3; 
-  
+ 
+    
     menuGet.desenha();
     
     requestAnimationFrame(loop);
-
+    function mudaTela(telas.Inicio );
         
     }
    loop();
